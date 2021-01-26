@@ -68,7 +68,7 @@ router.get('/', (req, res) => {
             let notificationHour    = moment(notification.date).hour();
             let notificationDay     = moment(notification.date).date();
             let notificationMonth   = moment(notification.date).month();
-            cron.schedule(`${notificationSecond} ${notificationMinutes} ${notificationHour} ${notificationDay} * *`, () => {
+            cron.schedule(`${notificationSecond} ${notificationMinutes} ${notificationHour} * * *`, () => {
                 if(x != "delivered") {
                 console.log("run!")
                 fcm.send(message, (err, response) => {
